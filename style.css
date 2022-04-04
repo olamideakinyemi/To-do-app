@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+    margin: 0%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body{
+    background-image: url("joshrose.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-size: cover;
+    color: white;
+}
+
+header{
+    padding: 2rem;
+    
+}
+
+h1{
+    font-size: 90px;
+    padding-bottom: 1rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+}
+
+.lux {
+    color: red;
+}
+
+.desc {
+    font-size: 30px;
+}
+
+
+.link{
+    position: fixed;
+    left: 79%;
+    top: 96vh;
+  border: 2px dashed gray;
+  border-radius: 10px;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: 60;
+  font-size: 30px;
+}
+
