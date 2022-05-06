@@ -7,7 +7,23 @@ document.getElementById("result").innerHTML = localStorage.getItem("passValue");
 
 
 
+const modal = document.querySelector(".modal");
+const addtask = document.querySelector(".addtask");
+const close   = document.querySelector(".close");
 
+function toggleModal() {
+    modal.classList.toggle("show-modal");
+}
+
+function windowOnclickEvent(event){
+    if (event.target === modal){
+        toggleModal();
+    }
+}
+
+addtask.addEventListener("click", toggleModal);
+close.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnclick);
 
 
 function updateClock(){

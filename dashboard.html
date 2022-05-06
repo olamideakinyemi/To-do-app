@@ -17,12 +17,18 @@
         <main>
             <div class="add">
                 <h5>What are you doing today?</h5>
-                <a href="/" class="addtask">
+                <button class="addtask1" id="button-1" onclick="toggleModal();">
                     Add task
                     <span>
                         <img src="./images:icons/add.png" alt="add task icon" />
                     </span>
-                </a>
+                </button>
+                <div class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="toggleModal()";>&times;</span>
+                        <p>hello</p>
+                    </div>
+                </div>
             </div>
             <div class="searchbar">
                 <input type="search" name="search" id="search" placeholder="Search tasks" />
@@ -48,12 +54,12 @@
                     <h5>Tasks</h5>
                     <div class="taskborder">
                        <p>
-                            You have not entered any task yet,<br /> <a href="/">
-                                Add a list to begin
+                            You have not entered any task yet,<br /> <button class="addtask1" id="button-2" onclick="toggleModal();">
+                                Add task
                                 <span>
                                     <img src="./images:icons/add.png" alt="add task icon" />
                                 </span>
-                            </a>
+                            </button>
                        </p>
                     </div>
                 </div>
