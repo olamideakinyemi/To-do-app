@@ -60,12 +60,12 @@ a{
 .card{
     text-align: center;
     padding: 10px 50px;
-   background-color: #0B0C1D;
    color: white;
    border-radius: 15px;
    width: 80%;
    height: 25vh;
    padding: 10px 10px;
+   background-color: goldenrod;
 }
 
 .date{
@@ -111,13 +111,15 @@ a{
     margin-top: 18%;
     padding: 50px 20px;
     line-height: 20px;
-    box-shadow: 5px 10px goldenrod;
+    box-shadow: 5px 10px gold;
 }
 
 .taskborder a{
     color: blue;
     margin-top: 10px;
 }
+
+
 
 @media only screen and (max-height: 667px) {
     .card{
@@ -136,3 +138,5 @@ a{
     }
   }
 
+
+  
