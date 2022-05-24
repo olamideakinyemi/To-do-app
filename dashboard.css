@@ -60,6 +60,12 @@ a{
     border-radius: 10px;
     padding-left: 5px;
     background-color: #191919;
+    outline: none;
+    color: white;
+}
+
+.search:focus{
+    border: 1px solid goldenrod;
 }
 
 .cards{
@@ -139,7 +145,7 @@ a{
     width: 100%;
     height: 100%;
     background-color: #F1F4F6;
-    visibility: hidden;
+    display: none;
     color: black;
     z-index: 1000;
 }
@@ -166,15 +172,40 @@ a{
 
 .show-modal{
     opacity: 1;
-    visibility: visible
+    display: block;
 }
 
 h3{
     margin-top: 20px;
 }
 
-.input{
-    margin-top: 100px;
+form {
+    display: inline-block;
+  }
+  .field {
+      margin-top: 70px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    order: -1;
+    padding-left: 5px;
+    padding-bottom: 15px;
+    transition: all 0.3s ease-in;
+    transform: translateY(20px);
+    pointer-events: none;
+    color: gray;
+    font-size: 15px;
+  }
+  input:focus + label {
+    transform: translateY(-2px);
+    color: goldenrod;
+    font-size: small;
+  }
+
+ .input{
+   
     width: 100%;
     -webkit-transition: width .35s ease-in-out;
   transition: width .35s ease-in-out;
@@ -188,17 +219,8 @@ h3{
 
 .input:focus{
     width: 80vw;
-    border-bottom: 1px solid blue;
-}
-
-label{
-    font-size: small;
-    color: grey;
-    position: absolute;
-    bottom: 20;
-    left: 0;
-}
-
+    border-bottom: 1px solid goldenrod;
+} 
 
 
 .submit{
@@ -206,13 +228,19 @@ label{
     height: 40px;
     border-radius: 5px;
     color: white;
-    background-color: rgb(247, 0, 0);
+    background-color: goldenrod;
     position: absolute;
     left: 0;
     bottom: -70%;
 }
 
+.myUl{
+    display: none;
+}
 
+.transition{
+    transform: translateY(0);
+}
 
 @media only screen and (max-height: 667px) {
     .card{
@@ -232,3 +260,8 @@ label{
   }
 
 
+use transform y 0
+
+before: transform x 100 or whatever
+
+transition

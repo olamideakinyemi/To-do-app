@@ -26,6 +26,14 @@ close.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnclick);
 
 
+// function getTask(){
+//     var taskValue = document.getElementById("inputField").value;
+//     localStorage.setItem("passValue", taskValue);
+// }
+
+// document.getElementById("taskcheck").innerHTML = localStorage.getItem("passValue")
+
+
 function updateClock(){
     var now = new Date();
     var dname = now.getDay(),
