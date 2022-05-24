@@ -23,15 +23,20 @@
                         <img src="./images:icons/add.png" alt="add task icon" />
                     </span>
                 </button>
-                <div class="modal">
+                <div class="modal" id="modal">
                     <div class="modal-content">
-                        <span class="close" onclick="toggleModal()";>&times;</span>
-                        <p>hello</p>
+                        <h3><b>Create a New Task</b></h3>
+                        <div>
+                            <input class="input" type="text" required/>
+                            <input class="submit" type="submit" value="submit" placeholder="Add"/>
+                            <label>Enter Task</label>
+                        </div>
                     </div>
+                    <span class="close" onclick="toggleModal()" ;>&times;</span>
                 </div>
             </div>
             <div class="searchbar">
-                <input type="search" name="search" id="search" placeholder="Search tasks" />
+                <input type="search" class="search" name="search" id="search" placeholder="Search tasks" />
             </div>
             <div class="cards">
                 <div class="card">
@@ -53,14 +58,15 @@
                 <div>
                     <h5>Tasks</h5>
                     <div class="taskborder">
-                       <p>
-                            You have not entered any task yet,<br /> <button class="addtask1" id="button-2" onclick="toggleModal();">
+                        <p>
+                            You have not entered any task yet,<br />
+                            <button class="addtask1" id="button-2" onclick="toggleModal();">
                                 Add task
                                 <span>
                                     <img src="./images:icons/add.png" alt="add task icon" />
                                 </span>
                             </button>
-                       </p>
+                        </p>
                     </div>
                 </div>
             </div>
