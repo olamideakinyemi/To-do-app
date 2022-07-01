@@ -6,8 +6,8 @@
         <title>Dashboard</title>
         <link rel="stylesheet" href="dashboard.css" />
     </head>
-    <body onload="initClock()">
-        <header class="transition">
+    <body>
+        <header class="">
             <h1>
                 Hi
                 <span id="result">...</span>
@@ -16,8 +16,8 @@
         </header>
         <main>
             <div class="add">
-                <h5 class="transition">What are you doing today?</h5>
-                <button class="addtask1" id="button-1" onclick="toggleModal();">
+                <h5 class="">What are you doing today?</h5>
+                <button class="addtasktop" id="button-1">
                     Add task
                     <span>
                         <img src="./images:icons/add.png" alt="add task icon" />
@@ -26,25 +26,21 @@
                 <div class="modal" id="modal">
                     <div class="modal-content">
                         <h3><b>Create a New Task</b></h3>
-                        <form>
+                        <form id="new-task-form">
                             <div class="field">
-                                <input class="input" type="text" required />
+                                <input class="input" id="new-task-input" type="text" required />
                                 <label id="label">Enter Task</label>
+                                <input id="add-task-button" class="submit" type="submit" value="Add Task" />
                             </div>
-                            <input
-                                    class="submit"
-                                    type="submit"
-                                    value="Add Task"
-                                />
                         </form>
                     </div>
                     <span class="close" onclick="toggleModal()" ;>&times;</span>
                 </div>
             </div>
-            <div class="searchbar transition">
+            <div class="searchbar">
                 <input type="search" class="search" name="search" id="search" placeholder="Search tasks" />
             </div>
-            <div class="cards transition">
+            <div class="cards">
                 <div class="card">
                     <div class="date">
                         <span id="dayname">Day</span>
@@ -63,19 +59,23 @@
             <div class="container">
                 <div>
                     <h5>Tasks</h5>
-                    <div class="taskborder transition" id="taskcheck">
-                        <ul class="myUl">
-                            <li>jshhhs</li>
-                        </ul>
-                        <p>
-                            You have not entered any task yet,<br />
-                            <button class="addtask1" id="button-2" onclick="toggleModal();">
-                                Add task
-                                <span>
-                                    <img src="./images:icons/add.png" alt="add task icon" />
-                                </span>
-                            </button>
-                        </p>
+                    <div id="tasks">
+                        <div class="content">
+                            <div class="taskborder" id="no-task-list">
+                                <p>
+                                    You have not entered any task yet,<br />
+                                    <button class="addtask" id="button-2">
+                                        Add task
+                                        <span>
+                                            <img src="./images:icons/add.png" alt="add task icon" />
+                                        </span>
+                                    </button>
+                                </p>
+                            </div>
+                            <div class="taskcard" id="taskcard">
+                                <ul id="todos-list"></ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

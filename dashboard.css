@@ -58,7 +58,7 @@ a{
     height: 50%;
     border: 0px solid white;
     border-radius: 10px;
-    padding-left: 5px;
+    padding-left: 10px;
     background-color: #191919;
     outline: none;
     color: white;
@@ -93,7 +93,7 @@ a{
 }
 
 .time{
-    font-size: 40px;
+    font-size: 38px;
     font-weight: bold;
 }
 
@@ -234,12 +234,53 @@ form {
     bottom: -70%;
 }
 
-.myUl{
-    display: none;
+    /* .taskcard{
+    text-align: center;
+    padding: 15px 30px;
+   border-radius: 25px;
+   width: 70%;
+   height: 25vh;
+   background-color: white;
+   margin: 50px;
+   background-color: goldenrod;
+   color: white;
+}  */
+
+.deleteicon{
+    float: right;
 }
 
-.transition{
-    transform: translateY(0);
+.editicon{
+    float: left;
+}
+
+.tasktext{
+    margin-top: 50px;
+    line-height: 30px;
+}
+
+li{ 
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    border: 0px solid goldenrod;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: goldenrod;
+}
+
+li p{
+    margin-left: 10px;
+}
+
+li span{
+    position: absolute;
+    right: 10;
+}
+
+li input{
+
 }
 
 @media only screen and (max-height: 667px) {
@@ -260,8 +301,8 @@ form {
   }
 
 
-use transform y 0
+/* use transform y 0
 
 before: transform x 100 or whatever
 
-transition
+transition */
