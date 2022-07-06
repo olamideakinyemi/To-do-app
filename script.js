@@ -7,7 +7,7 @@ document.getElementById("result").innerHTML = localStorage.getItem("passValue");
 
 const modal = document.querySelector(".modal");
 const addtask = document.querySelector(".addtask");
-const addtasktop = document.querySelector('.addtasktop')
+const addtasktop = document.querySelector(".addtasktop");
 const close = document.querySelector(".close");
 
 function toggleModal() {
@@ -22,8 +22,6 @@ function windowOnclickEvent(event) {
 
 addtask.addEventListener("click", toggleModal);
 addtasktop.addEventListener("click", toggleModal);
-
-
 
 function updateClock() {
     var now = new Date();
@@ -94,10 +92,6 @@ const checkTaskState = () => {
     }
 };
 
-function deleteTodo(){
-   
-}
-
 function createTodo(e) {
     e.preventDefault();
     // trimming the value from input box to remove whitespaces and storing in text var
@@ -105,53 +99,77 @@ function createTodo(e) {
 
     // check if text is a valid input
     if (!!text) {
-        tasks.push({ taskName: text, isCompleted: false });
-        checkTaskState();
+        var newTask = { taskName: text, isCompleted: false };
+        tasks.push(newTask);
+        if (tasks.length === 1) {
+            checkTaskState();
+        } else addTaskToDocument(newTask);
+        addInput.value = "";
     }
-
 }
 
-const toggleTasksCompletion = (index) => {
-    const actualTask = tasks[index];
+const toggleTasksCompletion = (i) => {
+    const actualTask = tasks[i];
     actualTask.isCompleted = !actualTask.isCompleted;
-    renderTasks()
 };
 
+const removeTask = (i) => {
+    const newTask = tasks[i]
+    tasks.splice(i);
+}
+
+function addTaskToDocument(task) {
+    const individualTask = task;
+    const checkBoxInput = document.createElement(`input`);
+    checkBoxInput.classList.add("checkbox");
+    checkBoxInput.type = "checkbox";
+    checkBoxInput.checked = individualTask.isCompleted;
+    checkBoxInput.addEventListener("input", () => toggleTasksCompletion(i));
+    const paragraph = document.createElement("p");
+    paragraph.classList.add("paragraph");
+    paragraph.innerText = individualTask.taskName;
+
+    const removeElem = document.createElement("span");
+    removeElem.classList.add("remove");
+    removeElem.innerHTML = "&cross;";
+    removeElem.addEventListener("click", () => removeTask(i));
+
+    const listItem = document.createElement("li");
+    listItem.appendChild(checkBoxInput);
+    listItem.appendChild(paragraph);
+    listItem.appendChild(removeElem);
+
+    populatedTaskListDoc.appendChild(listItem);
+
+    toggleModal();
+}
+
+// tasks = [
+//     {
+//         taskName: '',
+//         isCompleted: false
+//     }
+// ]
+
+// var fruits = ['mango', 'apple']
+
+// var apple = fruits[1]
+// var mango = fruits[0]
+// for(let i = 0; i < fruits.length; i++){
+//     if(fruits[i] === 'apple'){
+
+//     }
+// }
 const renderTasks = () => {
     for (let i = 0; i < tasks.length; i++) {
-        const individualTask = tasks[i];
-        const checkBoxInput = document.createElement(`input`);
-        checkBoxInput.classList.add("checkbox");
-        checkBoxInput.type = "checkbox";
-        checkBoxInput.checked = individualTask.isCompleted;
-        checkBoxInput.addEventListener("input", () => toggleTasksCompletion(i));
-
-        const paragraph = document.createElement("p");
-        paragraph.classList.add("paragraph");
-        paragraph.innerText = individualTask.taskName;
-
-        const removeElem = document.createElement("span");
-        removeElem.classList.add("remove");
-        removeElem.innerHTML = "&cross;";
-        removeElem.addEventListener("click", () => removeTask(i));
-
-    
-
-        const listItem = document.createElement("li");
-        listItem.appendChild(checkBoxInput);
-        listItem.appendChild(paragraph);
-        listItem.appendChild(removeElem);
-
-        populatedTaskListDoc.appendChild(listItem);
-
-        toggleModal();
+        const newTask = tasks[i]
+        addTaskToDocument(newTask);
     }
 };
-
 
 taskSubmissionForm.addEventListener("submit", createTodo);
 
 window.onload = () => {
     checkTaskState();
-    initClock()
+    initClock();
 };
