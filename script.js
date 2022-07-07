@@ -80,6 +80,7 @@ var list = document.getElementById("todos-list");
 var addInput = document.getElementById("new-task-input");
 var addBtn = document.getElementById("add-task-button");
 const taskSubmissionForm = document.querySelector("#new-task-form");
+const label = document.getElementById("label");
 
 const checkTaskState = () => {
     if (!!tasks.length) {
@@ -113,10 +114,7 @@ const toggleTasksCompletion = (i) => {
     actualTask.isCompleted = !actualTask.isCompleted;
 };
 
-const removeTask = (i) => {
-    const newTask = tasks[i]
-    tasks.splice(i);
-}
+const removeTask = (i) => {};
 
 function addTaskToDocument(task) {
     const individualTask = task;
@@ -142,30 +140,26 @@ function addTaskToDocument(task) {
     populatedTaskListDoc.appendChild(listItem);
 
     toggleModal();
+
+    checkInputs();
 }
 
-// tasks = [
-//     {
-//         taskName: '',
-//         isCompleted: false
-//     }
-// ]
-
-// var fruits = ['mango', 'apple']
-
-// var apple = fruits[1]
-// var mango = fruits[0]
-// for(let i = 0; i < fruits.length; i++){
-//     if(fruits[i] === 'apple'){
-
-//     }
-// }
 const renderTasks = () => {
     for (let i = 0; i < tasks.length; i++) {
-        const newTask = tasks[i]
+        const newTask = tasks[i];
         addTaskToDocument(newTask);
     }
 };
+
+function checkInputs() {
+    if (tasks.length === 5) {
+        document.getElementById("add-task-button").disabled = true;
+        document.getElementById("label").innerHTML = "you have reached task limit";
+        addInput.style.borderBlockColor = "red";
+        label.style.color = "red";
+        addBtn.style.background = "red";
+    }
+}
 
 taskSubmissionForm.addEventListener("submit", createTodo);
 
