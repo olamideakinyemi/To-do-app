@@ -29,6 +29,7 @@ a{
     color: white;
 }
 
+
 #button-1{
     border: none;
     background-color: black;
@@ -279,6 +280,10 @@ li p{
 }
 
 li span{
+    font-size: 20px;
+    border: none;
+    background-color: goldenrod;
+    color: white;
     position: absolute;
     right: 10;
 }

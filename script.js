@@ -82,15 +82,16 @@ var addBtn = document.getElementById("add-task-button");
 const taskSubmissionForm = document.querySelector("#new-task-form");
 const label = document.getElementById("label");
 
-const checkTaskState = () => {
+const checkTaskState = (shouldRerender = true) => {
     if (!!tasks.length) {
         noTaskListDoc.style.display = "none";
         populatedTaskListDoc.style.display = "block";
-        renderTasks();
+        if (shouldRerender) renderTasks();
     } else {
         noTaskListDoc.style.display = "block";
         populatedTaskListDoc.style.display = "none";
-    }
+    } 
+        checkInputs()
 };
 
 function createTodo(e) {
@@ -104,7 +105,7 @@ function createTodo(e) {
         tasks.push(newTask);
         if (tasks.length === 1) {
             checkTaskState();
-        } else addTaskToDocument(newTask);
+        } else addTaskToDocument(newTask, tasks.length - 1);
         addInput.value = "";
     }
 }
@@ -114,9 +115,14 @@ const toggleTasksCompletion = (i) => {
     actualTask.isCompleted = !actualTask.isCompleted;
 };
 
-const removeTask = (i) => {};
+const removeTask = (i) => {
+    const removeElem = document.getElementById(i);
+    tasks.splice(i, 1);
+    removeElem.remove();
+    checkTaskState(false);
+};
 
-function addTaskToDocument(task) {
+function addTaskToDocument(task, i) {
     const individualTask = task;
     const checkBoxInput = document.createElement(`input`);
     checkBoxInput.classList.add("checkbox");
@@ -136,18 +142,18 @@ function addTaskToDocument(task) {
     listItem.appendChild(checkBoxInput);
     listItem.appendChild(paragraph);
     listItem.appendChild(removeElem);
+    listItem.setAttribute("id", i);
 
     populatedTaskListDoc.appendChild(listItem);
 
     toggleModal();
-
-    checkInputs();
+    checkTaskState(false);
 }
 
 const renderTasks = () => {
     for (let i = 0; i < tasks.length; i++) {
         const newTask = tasks[i];
-        addTaskToDocument(newTask);
+        addTaskToDocument(newTask, i);
     }
 };
 
@@ -158,6 +164,11 @@ function checkInputs() {
         addInput.style.borderBlockColor = "red";
         label.style.color = "red";
         addBtn.style.background = "red";
+    } else{
+        document.getElementById("add-task-button").disabled = false;
+        document.getElementById("label").innerHTML = "Enter task";
+        label.style.color = "gray";
+        addBtn.style.background = "goldenrod";
     }
 }
 
