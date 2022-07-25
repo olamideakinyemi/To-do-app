@@ -160,17 +160,20 @@ const renderTasks = () => {
 function checkInputs() {
     if (tasks.length === 5) {
         document.getElementById("add-task-button").disabled = true;
+        document.getElementById("new-task-input").disabled = true;
         document.getElementById("label").innerHTML = "you have reached task limit";
-        addInput.style.borderBlockColor = "red";
         label.style.color = "red";
         addBtn.style.background = "red";
     } else{
         document.getElementById("add-task-button").disabled = false;
         document.getElementById("label").innerHTML = "Enter task";
+        document.getElementById("new-task-input").disabled = false;
         label.style.color = "gray";
         addBtn.style.background = "goldenrod";
     }
 }
+
+
 
 taskSubmissionForm.addEventListener("submit", createTodo);
 

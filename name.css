@@ -19,6 +19,10 @@ body{
     align-items: center;
 }
 
+header{
+    transition: all 0.3s ease-in;
+    transform: translateX(3px);
+}
 
 h1{
     font-size: 60px;
