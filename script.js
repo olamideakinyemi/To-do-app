@@ -72,7 +72,6 @@ function initClock() {
     updateClock();
     window.setInterval("updateClock()", 1);
 }
-
 const tasks = [];
 const noTaskListDoc = document.querySelector("#no-task-list");
 const populatedTaskListDoc = document.querySelector("#taskcard");
@@ -98,7 +97,6 @@ function createTodo(e) {
     e.preventDefault();
     // trimming the value from input box to remove whitespaces and storing in text var
     var text = addInput.value.trim();
-
     // check if text is a valid input
     if (!!text) {
         var newTask = { taskName: text, isCompleted: false };
