@@ -37,16 +37,29 @@ h1 {
 }
 
 .link {
-    position: fixed;
+    display: flex;
+    justify-content: center;
+    /* position: fixed;
     left: 78%;
-    top: 94.5vh;
-    border: 2px dashed gray;
+    top: 90vh; */
+    /* border: 2px dashed gray;
     border-radius: 10px;
     padding: 10px;
     text-decoration: none;
     color: white;
     font-weight: 60;
-    font-size: 30px;
+    font-size: 30px; */
+    color: white;
+    font-size: 50px; 
+     border: 2px solid white;
+     background-color: goldenrod;
+     text-decoration: none;
+     width: 70%;
+     border-radius: 10px;
+     margin: auto;
+     font-weight: bold;
+     padding: 20px;
+     margin-top: 75vh;
 }
 
 @media only screen and (max-width: 1000px) {
