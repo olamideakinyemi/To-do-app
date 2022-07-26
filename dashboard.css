@@ -119,7 +119,7 @@ a{
   background-color: #1F1F1F;
   position: fixed;
   bottom: 0px;
-  width: 90vw;
+  width: 100vw;
   height: 50%;
   border-top-right-radius: 40px;
   border-top-left-radius: 40px;
@@ -129,7 +129,7 @@ a{
 .taskborder{
     border: 1px solid white;
     border-radius: 15px;
-    width: 12rem;
+    width: 14rem;
     height: 12rem;
     color: black;
     background-color: white;
