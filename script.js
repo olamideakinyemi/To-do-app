@@ -89,8 +89,8 @@ const checkTaskState = (shouldRerender = true) => {
     } else {
         noTaskListDoc.style.display = "block";
         populatedTaskListDoc.style.display = "none";
-    } 
-        checkInputs()
+    }
+    checkInputs();
 };
 
 function createTodo(e) {
@@ -111,6 +111,15 @@ function createTodo(e) {
 const toggleTasksCompletion = (i) => {
     const actualTask = tasks[i];
     actualTask.isCompleted = !actualTask.isCompleted;
+    const paragraph = document.getElementById(i);
+    if (actualTask.isCompleted === true) {
+        paragraph.style.textDecoration = "line-through";
+        paragraph.style.color = "whitesmoke";
+    }
+    if (actualTask.isCompleted === false) {
+        paragraph.style.textDecoration = "none";
+        paragraph.style.color = "whitesmoke";
+    }
 };
 
 const removeTask = (i) => {
@@ -162,7 +171,7 @@ function checkInputs() {
         document.getElementById("label").innerHTML = "you have reached task limit";
         label.style.color = "red";
         addBtn.style.background = "red";
-    } else{
+    } else {
         document.getElementById("add-task-button").disabled = false;
         document.getElementById("label").innerHTML = "Enter task";
         document.getElementById("new-task-input").disabled = false;
@@ -170,8 +179,6 @@ function checkInputs() {
         addBtn.style.background = "goldenrod";
     }
 }
-
-
 
 taskSubmissionForm.addEventListener("submit", createTodo);
 
