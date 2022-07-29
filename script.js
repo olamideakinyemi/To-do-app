@@ -10,8 +10,8 @@ const addtask = document.querySelector(".addtask");
 const addtasktop = document.querySelector(".addtasktop");
 const close = document.querySelector(".close");
 
-function toggleModal() {
-    modal.classList.toggle("show-modal");
+function toggleModal(handle = true) {
+    if (handle) modal.classList.toggle("show-modal");
 }
 
 function windowOnclickEvent(event) {
@@ -72,7 +72,10 @@ function initClock() {
     updateClock();
     window.setInterval("updateClock()", 1);
 }
-const tasks = [];
+
+// JSON.parse(localStorage.getItem("tasks")) || [];
+
+const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 const noTaskListDoc = document.querySelector("#no-task-list");
 const populatedTaskListDoc = document.querySelector("#taskcard");
 var list = document.getElementById("todos-list");
@@ -100,7 +103,9 @@ function createTodo(e) {
     // check if text is a valid input
     if (!!text) {
         var newTask = { taskName: text, isCompleted: false };
+        localStorage.setItem("tasks", JSON.stringify(tasks));
         tasks.push(newTask);
+        toggleModal();
         if (tasks.length === 1) {
             checkTaskState();
         } else addTaskToDocument(newTask, tasks.length - 1);
@@ -153,7 +158,7 @@ function addTaskToDocument(task, i) {
 
     populatedTaskListDoc.appendChild(listItem);
 
-    toggleModal();
+    toggleModal(false);
     checkTaskState(false);
 }
 
@@ -165,6 +170,7 @@ const renderTasks = () => {
 };
 
 function checkInputs() {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
     if (tasks.length === 5) {
         document.getElementById("add-task-button").disabled = true;
         document.getElementById("new-task-input").disabled = true;
